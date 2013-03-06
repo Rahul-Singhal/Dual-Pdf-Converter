@@ -26,7 +26,7 @@ HOW TO RUN:
             --type one less page no. that you want to convert to .html/.pdf like
               if you want to convert pages from 4 to 10 ( starting page = 3, end page = 9).
             --type "latex" for .tex conversion and "html" for .html conversion.
-  6. If you want to generate Latex code the output code will go to LatexOutut folder with name "final.tex".
-  7. If you want to generate html code the output code will go to htmlOutut folder with name "final.html".
+  6. If you want to generate Latex code the output code will go to LatexOutput folder with name "final.tex".
+  7. If you want to generate html code the output code will go to htmlOutput folder with name "final.html".
   
                       "THANKS FOR USING OUR PROGRAM , HOPE YOU ENJOYED WORKING WITH IT"               
