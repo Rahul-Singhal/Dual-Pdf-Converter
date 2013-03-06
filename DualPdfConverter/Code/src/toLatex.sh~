@@ -1,0 +1,5 @@
+cd ..
+cp pdfData/textLocations.txt tolatex/
+cd tolatex
+g++ parser.cpp main.cpp -std=c++0x
+./a.out

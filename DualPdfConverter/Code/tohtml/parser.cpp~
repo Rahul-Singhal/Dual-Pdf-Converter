@@ -1,0 +1,239 @@
+#include<iostream>
+#include"parser.h"
+#include<cmath>
+#include<cstdlib>
+using namespace std;
+
+
+	parser::parser(){
+		fpOut = fopen("bodyText.txt","a");
+		fpIn = fopen("textLocations.txt","r");
+		
+		bodyString = "";
+		float xCoord,yCoord,width,space,fontSize;
+		
+		string fontType;
+		char c;
+		/*fscanf(fpIn, "%c %f %f %f %f %f" , &c , &yCoord , &xCoord,&fontSize,&width, &space);
+		cout<<c<<endl<<yCoord<<endl<<xCoord<<endl<<fontSize<<endl<<width<<endl<<space<<endl;
+		fontType = extractFont(fpIn);*/
+		string specialC = "";
+		c = fgetc(fpIn);
+		if((int)c < 0) {specialC += c; 
+		while((int)(c = fgetc(fpIn)) < 0) specialC += c; 
+			c = specialC[specialC.length()-1];
+			specialC = specialC.substr(0 , specialC.length()-1);
+		}
+		//cout<<"see me "<<bodyString + c<<endl;
+
+		fscanf(fpIn," %f %f %f %f %f ",&yCoord,&xCoord,&fontSize,&width,&space);
+		fontType = extractFont(fpIn);
+    cout<<c<<endl;
+		prevLetter.setLastLetter(c,xCoord,yCoord,width);
+
+		string family,style,weight;
+		processFontType(fontType,family,style,weight);
+		//cout<<"have a look "<<fontSize<<endl;
+		//cout<<"initial "<<currentFont.getSize()<<endl;
+		currentFont.set(space,family,fontSize,weight,style,"rgb(0,0,0)"); 
+		//cout<<currentFont.getSize()<<"   nm   "<<endl;
+		int classNo = hClass.isPresent(currentFont);
+  
+		if(classNo == -1){
+			//cout<<"arey "<<currentFont.getSize()<<endl;
+			classNo = hClass.addClass(currentFont);
+		}
+
+		char tempDivLine[200];
+		sprintf(tempDivLine,"<div style=\" position:absolute; left:%gpx; top:%gpx;\" class=\"class_%d\">",
+			xCoord,yCoord , classNo);
+		bodyString = tempDivLine;
+		bodyString += specialC;
+		bodyString += c;
+		cout<<bodyString<<endl;
+		
+		return;
+
+	}
+
+	void parser::readText(){
+		//exit(0);
+		//cout<<"here"<<endl;
+		float xCoord,yCoord,width,space,fontSize;
+		//char * tempFontType;
+		string fontType;
+		char c;
+
+		c = fgetc(fpIn);
+		cout<<"this ckat "<<c<<endl;
+		
+		if(c == EOF){  prevLetter.setLetter(EOF); terminateDiv(); hClass.closeFile(); return;}
+		
+		string specialC = "";
+		if((int)c < 0) {specialC += c; 
+			while((int)(c = fgetc(fpIn)) < 0) specialC += c; 
+			c = specialC[specialC.length()-1];
+			//specialC = specialC.substr(0 , specialC.length() -1);
+		} 
+		 
+		
+		//cout<<"gh "<<c<<"  char"<<endl;
+		fscanf(fpIn," %f %f %f %f %f\n",&yCoord,&xCoord,&fontSize,&width,&space);
+		//cout<<"meow"<<"this is c "<<xCoord<<endl;
+		fontType = extractFont(fpIn);
+		string family,style,weight;
+		processFontType(fontType,family,style,weight);
+
+		nextFont.set(space,family,fontSize,weight,style,"rgb(0,0,0)");
+  
+		if(yCoord == prevLetter.getYCoord()){
+			if(checkWordContinuity(prevLetter.getXCoord(),xCoord,prevLetter.getLetterWidth())) {
+			cout<<"continuous"<<endl;
+				if((int)c < 0){bodyString += specialC;}
+				bodyString += c;
+				prevLetter.setLastLetter(c,xCoord,yCoord,width);
+				readText();
+			}
+			else{
+				if(checkDivContinuity(prevLetter.getXCoord(),xCoord,prevLetter.getLetterWidth(),currentFont.getSpaceWidth())){
+					
+					if(nextFont == currentFont) {
+						if((int)c < 0){bodyString += specialC;}
+						bodyString += " "; 
+						bodyString += c;
+						prevLetter.setLastLetter(c,xCoord,yCoord,width);
+						
+						readText();
+					}
+					else{
+					  cout<<"hey there "<<bodyString<<endl;
+						prevLetter.setLastLetter(c,xCoord,yCoord,width);
+						terminateDiv();
+						if(hClass.isPresent(nextFont) == -1){
+						hClass.addClass(nextFont);
+					  }
+						currentFont = nextFont;
+						
+						bodyString = "";
+						if((int)c < 0){bodyString += specialC;}
+						bodyString += c;
+						
+					}
+				}
+				else{
+				cout<<"look at me"<<endl;
+
+					prevLetter.setLastLetter(c,xCoord,yCoord,width);
+					if(hClass.isPresent(nextFont) == -1){
+						hClass.addClass(nextFont);
+					}
+					currentFont = nextFont;
+					terminateDiv();
+					bodyString = "";
+					if((int)c < 0){bodyString += specialC;}
+					bodyString += c;
+				}
+			}
+		}
+		else{	
+
+			prevLetter.setLastLetter(c,xCoord,yCoord,width);
+			if(hClass.isPresent(nextFont) == -1){
+				hClass.addClass(nextFont);
+			}
+
+			currentFont = nextFont;
+
+			terminateDiv();
+			bodyString = "";
+			if((int)c < 0){bodyString += specialC;}
+			bodyString += c;
+		}
+		return;
+	}		
+
+   	bool parser::checkDivContinuity(double prevPos,double newPos,double width,double space){
+   		if(abs(newPos - width - prevPos) <= 2*space){
+   			return true;
+   		}
+   		else{
+   			return false;
+   		}	
+   	}
+	
+	bool parser::checkWordContinuity(double prePos,double newPos,double width){
+		if((newPos - width) - prePos <= 0.5){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+
+	void parser::terminateDiv(){
+		
+		bodyString += "</div>\n";
+    cout<<bodyString<<endl;
+		writeBodySyntax(bodyString);
+		int p = hClass.isPresent(currentFont);
+		if(p == -1){
+			p = hClass.addClass(currentFont);
+		}
+		
+		char tempDivLine[150]; 
+		sprintf(tempDivLine,"<div style=\"position:absolute;left:%gpx;top:%gpx;\" class=\"class_%d\">",
+		prevLetter.getXCoord(), prevLetter.getYCoord(),p); bodyString +=
+		tempDivLine; bodyString += prevLetter.getLetter();
+	
+		if(prevLetter.getLetter() == EOF) {fclose(fpOut); fclose(fpIn); return;}
+		readText();
+		return;
+	}
+
+	void parser::writeBodySyntax(string & str){
+		//cout<<str<<endl;	
+		fprintf(fpOut , "%s\n" , str.c_str());
+		str = "";
+		return;
+	}
+
+	void parser::processFontType(string & fontType,string & fontFamily,string & style,string & weight){
+		int i = 0 ;
+		style = ""; weight = "";
+		while(i < fontType.length()){
+			if(fontType[i] == '+'){fontFamily = ""; i++; continue;}
+			if(fontType[i] == '-') break;
+			fontFamily += fontType[i];
+			i++;
+		}bulla
+		if(i == fontType.length()){return;}
+		i++;
+		if(fontType[i] == 'b' && fontType[i+1] == 'o') {
+			weight = "bold"; 
+			i += 4;
+			if(fontType[i] == 'i' && fontType[i+1] == 't'){
+				style = "italics";
+				return;
+			}
+			else return;
+		}
+		if(fontType[i] == 'i' && fontType[i+1] == 't'){
+				style = "italics";
+				return;
+			}
+	}
+
+	string parser::extractFont(FILE * fp){
+		string str = "";
+
+		char c = fgetc(fp);
+		c = fgetc(fp);
+		while(c!='\n'){
+			
+			str += c;
+			c = fgetc(fp);
+		}
+		
+		return str;
+
+	}

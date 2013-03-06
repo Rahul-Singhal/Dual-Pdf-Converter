@@ -1,0 +1,113 @@
+<html><head><meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+
+<style type='text/css'><!--
+
+#div_0 .class_0{font-family:CMBX12,Arial;font-style:normal;font-weight:normal;color:rgb(0,0,0);font-size:14.3462px;}
+
+#div_0 .class_1{font-family:CMR10,Arial;font-style:normal;font-weight:normal;color:rgb(0,0,0);font-size:10.9091px;}
+
+#div_0 .class_2{font-family:CMTT10,Arial;font-style:normal;font-weight:normal;color:rgb(0,0,0);font-size:10.9091px;}
+
+--></style>
+<style type='text/css'></style><script>window["_GOOG_TRANS_EXT_VER"] = '1';</script></head>
+
+<body>
+
+<div id = "div_0" style='position:absolute;left:50%;margin-left:-297.638000px;top:0.000000px;width:595.276001px;height:841.890015px;border-style:outset;overflow:hidden'>
+<img src='images/0-0.jpg' style = 'position:absolute;left:0.000000px;top:0.000000px' width='0.000000' height='0.000000'>
+<div style=" position:absolute; left:81px; top:119.821px;" class="class_0">1</div>
+
+<div style="position:absolute;left:105.209px;top:119.821px;" class="class_0">ICS 161: Design and Analysis of Algorithms</div>
+
+<div style="position:absolute;left:105.209px;top:137.754px;" class="class_0">Lecture notes for January 23, 1996</div>
+
+<div style="position:absolute;left:81px;top:195.889px;" class="class_0">2</div>
+
+<div style="position:absolute;left:105.209px;top:195.889px;" class="class_0">Bucket Sorting</div>
+
+<div style="position:absolute;left:81px;top:220.242px;" class="class_1">We’ve seen various algorithms for sorting in O(n log n) time and a lower bound showing that</div>
+
+<div style="position:absolute;left:81px;top:233.791px;" class="class_1">O(n log n) is optimal. But the lower bound only applies to comparison sorting. What if we’re</div>
+
+<div style="position:absolute;left:81px;top:247.34px;" class="class_1">allowed to do other operations than comparisons? The results will have to depend on what</div>
+
+<div style="position:absolute;left:81px;top:260.889px;" class="class_1">specific data type we want to sort; typical types might be integer, floating point, or character</div>
+
+<div style="position:absolute;left:81px;top:274.438px;" class="class_1">string.</div>
+
+<div style="position:absolute;left:97.936px;top:287.988px;" class="class_1">Let’s start with a really simple example: We want to sort n integers that are all in the</div>
+
+<div style="position:absolute;left:81px;top:301.537px;" class="class_1">range 1..n, no two the same. How quickly can we determine the sorted order?</div>
+
+<div style="position:absolute;left:124.636px;top:320.931px;" class="class_1">Answer: O(1), without even computing anything you know it has to be 1,2,3,...n-</div>
+
+<div style="position:absolute;left:108.273px;top:334.48px;" class="class_1">1,n.</div>
+
+<div style="position:absolute;left:97.936px;top:353.875px;" class="class_1">As a less stupid example, suppose all numbers are still in the range 1..n but some might</div>
+
+<div style="position:absolute;left:81px;top:367.424px;" class="class_1">be duplicates. We can use an array to count how many copies of each number there are:</div>
+
+<div style="position:absolute;left:103.909px;top:386.818px;" class="class_2">sort(int n, X[n])</div>
+
+<div style="position:absolute;left:103.909px;top:400.368px;" class="class_2">\{</div>
+
+<div style="position:absolute;left:103.909px;top:413.917px;" class="class_2">int i,j, Y[n+1]</div>
+
+<div style="position:absolute;left:103.909px;top:427.466px;" class="class_2">for (i = 0; i $<$ n; i++) Y[i] = 0;</div>
+
+<div style="position:absolute;left:103.909px;top:441.015px;" class="class_2">for (i = 0; i $<$ n; i++) Y[X[i]]++;</div>
+
+<div style="position:absolute;left:103.909px;top:454.564px;" class="class_2">for (i = 0, j = 0; i $<$ n; i++)</div>
+
+<div style="position:absolute;left:126.818px;top:468.114px;" class="class_2">while(Y[i]-- $>$ 0) X[j++] = i</div>
+
+<div style="position:absolute;left:103.909px;top:481.663px;" class="class_2">\}</div>
+
+<div style="position:absolute;left:97.936px;top:501.057px;" class="class_1">The three loops here take O(n) time (we go back to time instead of counting comparisons</div>
+
+<div style="position:absolute;left:81px;top:514.606px;" class="class_1">since this algorithm doesnt use any comparisons).</div>
+
+<div style="position:absolute;left:97.936px;top:528.156px;" class="class_1">One not-completely-obvious point:</div>
+
+<div style="position:absolute;left:269.986px;top:528.156px;" class="class_1">one of the loops is nested.</div>
+
+<div style="position:absolute;left:403.858px;top:528.156px;" class="class_1">Normally when we see a</div>
+
+<div style="position:absolute;left:81px;top:541.705px;" class="class_1">collection of nested loops, the time bound is the product of the number of iterations of each</div>
+
+<div style="position:absolute;left:81px;top:555.254px;" class="class_1">loop. Why is this nested loop O(n) rather than O(nˆ2)?</div>
+
+<div style="position:absolute;left:124.636px;top:574.648px;" class="class_1">Answer: It’s possible for the inner loop to execute as many as n times, but not</div>
+
+<div style="position:absolute;left:108.273px;top:588.198px;" class="class_1">on all n iterations of the outer loop.</div>
+
+<div style="position:absolute;left:289.523px;top:588.198px;" class="class_1">The easiest way to see this is to match up</div>
+
+<div style="position:absolute;left:108.273px;top:601.747px;" class="class_1">the times when we increment the array entries with the times when we decrement</div>
+
+<div style="position:absolute;left:108.273px;top:615.296px;" class="class_1">them. Since there are only n increments, there are also only n decrements.</div>
+
+<div style="position:absolute;left:97.936px;top:634.69px;" class="class_1">This algorithm is already close to useful. But it is less likely that we want to sort numbers</div>
+
+<div style="position:absolute;left:81px;top:648.24px;" class="class_1">exactly, and more likely that we want to sort records by some number derived from them.</div>
+
+<div style="position:absolute;left:81px;top:661.789px;" class="class_1">(As an example, maybe we have the data from the UCI phone book, and we want to sort all</div>
+
+<div style="position:absolute;left:81px;top:675.338px;" class="class_1">the entries by phone number. It’s not so useful to sort just the phone numbers by themselves;</div>
+
+<div style="position:absolute;left:81px;top:688.887px;" class="class_1">we want to still know which name goes with which number.)</div>
+
+<div style="position:absolute;left:97.936px;top:702.436px;" class="class_1">So suppose you have a list of n records each with a key that’s a number from 1 to k (we</div>
+
+<div style="position:absolute;left:81px;top:715.985px;" class="class_1">generalize the problem a little so k is not necessarily equal to n).</div>
+
+<div style="position:absolute;left:97.936px;top:729.535px;" class="class_1">We can solve this by making an array of linked lists. We move each input record into the</div>
+
+<div style="position:absolute;left:81px;top:743.084px;" class="class_1">list in the appropriate position of the array then concatenate all the lists together in order.</div>
+
+<div style="position:absolute;left:298.773px;top:772.972px;" class="class_1">1</div>
+
+
+</div>
+
+</body>

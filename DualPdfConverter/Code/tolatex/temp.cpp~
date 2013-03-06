@@ -1,0 +1,15 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+int main(){
+  char c;
+  
+  string s;
+  s = "{";
+  cout<<s.length()<<endl;
+  cout<<(int)s[0]<<endl<<(int)s[1]<<endl;
+  //cout<<s.length()<<endl;
+  //cout<<(int)s[0]<<" "<<(int)s[1]<<(int)s[2]<<endl;
+  return 0;
+}

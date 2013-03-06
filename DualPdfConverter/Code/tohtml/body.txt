@@ -1,0 +1,422 @@
+<div id = "div_0" style='position:absolute;left:50%;margin-left:-306.000000px;top:0.000000px;width:612.000000px;height:792.000000px;border-style:outset;overflow:hidden'>
+<img src='images/0-4215806.jpg' style = 'position:absolute;left:0.000000px;top:7691176.000000px' width='0.000000' height='7691192.000000'>
+<div style=" position:absolute; left:244.3px; top:87.4px;" class="class_0">Lab Assignment 5</div>
+
+<div style="position:absolute;left:289.8px;top:104px;" class="class_1">CS213</div>
+
+<div style="position:absolute;left:90.1px;top:118.9px;" class="class_1">Marks 10.</div>
+
+<div style="position:absolute;left:90.1px;top:134.5px;" class="class_1">Due: Part A: 6pm today. Part B: 6pm Friday, Oct 1.</div>
+
+<div style="position:absolute;left:90.1px;top:150.2px;" class="class_1">Late Submission: 24 hour late submission with 10% penalty. </div>
+
+<div style="position:absolute;left:90.1px;top:181.5px;" class="class_1">(Warning:   Academic   dishonesty   will   lead   to   straight   FF   grade   in   both   CS213   and </div>
+
+<div style="position:absolute;left:90.1px;top:196.7px;" class="class_1">CS293.  We  will  be running  copy­detection   software.  Discussion with  others  is perfectly </div>
+
+<div style="position:absolute;left:90.1px;top:211.1px;" class="class_1">fine.   You   can   discuss   the   logic   at   a   high   level.   But   you   must   write   the   code   yourself.</div>
+
+<div style="position:absolute;left:90.1px;top:225.6px;" class="class_1">If   your   code   is   just   not   working,  it   is   OK   to   take   someone   else’s   code   for   part   of   your </div>
+
+<div style="position:absolute;left:90.1px;top:240px;" class="class_1">solution,   as   long   as   you   explicitly   acknowledge   them   and   are   willing   to   lose   marks   for </div>
+
+<div style="position:absolute;left:90.1px;top:254.5px;" class="class_1">that part.It is also OK to seek help from someone in debugging your code, after you have </div>
+
+<div style="position:absolute;left:90.1px;top:268.9px;" class="class_1">spent   quite   some   time.   But   they   should   be   debugging   your   code   not   giving   you   their  </div>
+
+<div style="position:absolute;left:90.1px;top:283.4px;" class="class_1">code. )</div>
+
+<div style="position:absolute;left:90.1px;top:313.9px;" class="class_1">Problem   Description:    Implement</div>
+
+<div style="position:absolute;left:271.401px;top:313.9px;" class="class_2">  the   Heap   based   ADT   PriorityQueue   using   a </div>
+
+<div style="position:absolute;left:90.1px;top:328.2px;" class="class_2">dynamic   memory   allocation   based   heapTree   where   each   node   contains   left </div>
+
+<div style="position:absolute;left:90.1px;top:341px;" class="class_2">and right children. </div>
+
+<div style="position:absolute;left:90.1px;top:366.6px;" class="class_2">A priorityQueue implements, following two methods:</div>
+
+<div style="position:absolute;left:90.1px;top:392.2px;" class="class_2">Insert, GetMin</div>
+
+<div style="position:absolute;left:90.1px;top:417.8px;" class="class_2">The   signature   of   your   priorityQueue   class   will   take   two   types:   that   of   a  </div>
+
+<div style="position:absolute;left:500.2px;top:417.8px;" class="class_3">key </div>
+
+<div style="position:absolute;left:90.1px;top:430.6px;" class="class_2">and an element.</div>
+
+<div style="position:absolute;left:90.1px;top:456.2px;" class="class_2">template <class key, class element> class priorityQueue{</div>
+
+<div style="position:absolute;left:90.1px;top:469px;" class="class_2">private: </div>
+
+<div style="position:absolute;left:126.1px;top:481.8px;" class="class_2">heap<key,element>* t; </div>
+
+<div style="position:absolute;left:90.1px;top:494.6px;" class="class_2">.......</div>
+
+<div style="position:absolute;left:90.1px;top:507.4px;" class="class_2">}</div>
+
+<div style="position:absolute;left:90.1px;top:533px;" class="class_2">(If   you   are   having   difficulty   with   templates,   you   can   work   with   fix   types </div>
+
+<div style="position:absolute;left:90.1px;top:545.8px;" class="class_2">without any penalty.)</div>
+
+<div style="position:absolute;left:90.1px;top:571.4px;" class="class_2">'key' indicates the priority of the element. In our application, key happens to  </div>
+
+<div style="position:absolute;left:90.1px;top:584.2px;" class="class_2">be  a  value  contained   inside   the  element  itself,   but  in  other  applications,   like </div>
+
+<div style="position:absolute;left:90.1px;top:597px;" class="class_2">simulation   discussed   in   the   class,   key   is   completely   independent   of   the </div>
+
+<div style="position:absolute;left:90.1px;top:609.8px;" class="class_2">element.</div>
+
+<div style="position:absolute;left:90.1px;top:635.4px;" class="class_2">The   heapTree   itself   will   have   to   be   a   templatized   class:   The   value   stored   in </div>
+
+<div style="position:absolute;left:90.1px;top:648.2px;" class="class_2">each tree node will be a struct containing both a key and an element:</div>
+
+<div style="position:absolute;left:90.1px;top:712.2px;" class="class_2">template <class key, class element> class heap{</div>
+
+
+</div>
+<div id = "div_1" style='position:absolute;left:50%;margin-left:-306.000000px;top:802.000000px;width:612.000000px;height:792.000000px;border-style:outset;overflow:hidden'>
+<img src='images/1-0.jpg' style = 'position:absolute;left:155.500000px;top:435.399994px' width='301.000000' height='125.800003'>
+<img src='images/1-1.jpg' style = 'position:absolute;left:129.100006px;top:589.000000px' width='353.899994' height='111.500000'>
+<img src='images/1-1.jpg' style = 'position:absolute;left:129.100006px;top:589.000000px' width='353.899994' height='111.500000'>
+<div style=" position:absolute; left:90.1px; top:82.2px;" class="class_0">public:</div>
+
+<div style="position:absolute;left:90.1px;top:95px;" class="class_0">  key priority;</div>
+
+<div style="position:absolute;left:90.1px;top:107.8px;" class="class_0">  element value;</div>
+
+<div style="position:absolute;left:90.1px;top:120.6px;" class="class_0">  heap *left;</div>
+
+<div style="position:absolute;left:90.1px;top:133.4px;" class="class_0">  heap *right;</div>
+
+<div style="position:absolute;left:90.1px;top:146.2px;" class="class_0">  ...</div>
+
+<div style="position:absolute;left:90.1px;top:159px;" class="class_0">}</div>
+
+<div style="position:absolute;left:90.1px;top:184.6px;" class="class_0">a) (7 marks) Verify your implementation by implementing PQsort:</div>
+
+<div style="position:absolute;left:126.1px;top:197.4px;" class="class_0">Insert N elements in the heap and then call getMin N times. Verify that </div>
+
+<div style="position:absolute;left:90.1px;top:210.2px;" class="class_0">numbers are correctly sorted. </div>
+
+<div style="position:absolute;left:90.1px;top:238.4px;" class="class_1">b)  (3 marks)  Implement the Huffman Encoding using you priorityQueue class. </div>
+
+<div style="position:absolute;left:90.1px;top:251.9px;" class="class_0">Note here that the  element, as described below, will be a tree itself, though </div>
+
+<div style="position:absolute;left:90.1px;top:264.7px;" class="class_0">a   different   type   than   a   heapTree.   Hence   your   program   will   contain   a   tree   of </div>
+
+<div style="position:absolute;left:90.1px;top:277.5px;" class="class_0">tree, just as in mergesort we had list of lists.</div>
+
+<div style="position:absolute;left:90.1px;top:303.1px;" class="class_0">Following description of Huffman coding is based on the book CLR.</div>
+
+<div style="position:absolute;left:90.1px;top:330.4px;" class="class_0">In the pseudocode that follows, we assume that C is a set of n characters and </div>
+
+<div style="position:absolute;left:90.1px;top:343.2px;" class="class_0">that  each   character  c  ∈  C  is   an   object   with   a   defined   frequency  f  [c].   The </div>
+
+<div style="position:absolute;left:90.1px;top:356px;" class="class_0">algorithm builds the tree  T corresponding to the optimal code in a bottom-up </div>
+
+<div style="position:absolute;left:90.1px;top:368.8px;" class="class_0">manner. It begins with a set of |C| leaves and performs a sequence of |C| − 1 </div>
+
+<div style="position:absolute;left:90.1px;top:381.6px;" class="class_0">“merging”   operations   to   create   the   final   tree.   A  min-priority  queue  Q,   keyed </div>
+
+<div style="position:absolute;left:90.1px;top:394.4px;" class="class_0">on f , is used to identify the two least-frequent objects to merge together. The  </div>
+
+<div style="position:absolute;left:90.1px;top:407.2px;" class="class_0">result   of   the   merger   of   two   objects   is   a   new   object   whose   frequency   is   the </div>
+
+<div style="position:absolute;left:90.1px;top:420px;" class="class_0">sum of the frequencies of the two objects that were merged.</div>
+
+
+</div>
+<div id = "div_2" style='position:absolute;left:50%;margin-left:-306.000000px;top:1604.000000px;width:612.000000px;height:792.000000px;border-style:outset;overflow:hidden'>
+<img src='images/2-0.jpg' style = 'position:absolute;left:121.900002px;top:72.000000px' width='368.299988' height='312.299988'>
+<img src='images/2-0.jpg' style = 'position:absolute;left:121.900002px;top:72.000000px' width='368.299988' height='312.299988'>
+<div style=" position:absolute; left:90.1px; top:418.9px;" class="class_0">For   another   source   of   verification   you   can   use   the   following   data   from </div>
+
+<div style="position:absolute;left:90.1px;top:431.7px;" class="class_0">wikipedia:</div>
+
+<div style="position:absolute;left:90.1px;top:457.3px;" class="class_0">Char Freq Code</div>
+
+<div style="position:absolute;left:90.1px;top:470.1px;" class="class_0">space 7</div>
+
+<div style="position:absolute;left:162.1px;top:470.1px;" class="class_0">111</div>
+
+<div style="position:absolute;left:90.1px;top:482.9px;" class="class_0">a</div>
+
+<div style="position:absolute;left:126.1px;top:482.9px;" class="class_0">4</div>
+
+<div style="position:absolute;left:162.1px;top:482.9px;" class="class_0">010</div>
+
+<div style="position:absolute;left:90.1px;top:495.7px;" class="class_0">e</div>
+
+<div style="position:absolute;left:126.1px;top:495.7px;" class="class_0">4</div>
+
+<div style="position:absolute;left:162.1px;top:495.7px;" class="class_0">000</div>
+
+<div style="position:absolute;left:90.1px;top:508.5px;" class="class_0">f</div>
+
+<div style="position:absolute;left:126.1px;top:508.5px;" class="class_0">3</div>
+
+<div style="position:absolute;left:162.1px;top:508.5px;" class="class_0">1101</div>
+
+<div style="position:absolute;left:90.1px;top:521.3px;" class="class_0">h</div>
+
+<div style="position:absolute;left:126.1px;top:521.3px;" class="class_0">2</div>
+
+<div style="position:absolute;left:162.1px;top:521.3px;" class="class_0">1010</div>
+
+<div style="position:absolute;left:90.1px;top:534.1px;" class="class_0">i</div>
+
+<div style="position:absolute;left:126.1px;top:534.1px;" class="class_0">2</div>
+
+<div style="position:absolute;left:162.1px;top:534.1px;" class="class_0">1000</div>
+
+<div style="position:absolute;left:90.1px;top:546.9px;" class="class_0">m</div>
+
+<div style="position:absolute;left:126.1px;top:546.9px;" class="class_0">2</div>
+
+<div style="position:absolute;left:162.1px;top:546.9px;" class="class_0">0111</div>
+
+<div style="position:absolute;left:90.1px;top:559.7px;" class="class_0">n</div>
+
+<div style="position:absolute;left:126.1px;top:559.7px;" class="class_0">2</div>
+
+<div style="position:absolute;left:162.1px;top:559.7px;" class="class_0">0010</div>
+
+<div style="position:absolute;left:90.1px;top:572.5px;" class="class_0">s</div>
+
+<div style="position:absolute;left:126.1px;top:572.5px;" class="class_0">2</div>
+
+<div style="position:absolute;left:162.1px;top:572.5px;" class="class_0">1011</div>
+
+<div style="position:absolute;left:90.1px;top:585.3px;" class="class_0">t</div>
+
+<div style="position:absolute;left:126.1px;top:585.3px;" class="class_0">2</div>
+
+<div style="position:absolute;left:162.1px;top:585.3px;" class="class_0">0110</div>
+
+<div style="position:absolute;left:90.1px;top:598.1px;" class="class_0">l</div>
+
+<div style="position:absolute;left:126.1px;top:598.1px;" class="class_0">1</div>
+
+<div style="position:absolute;left:162.1px;top:598.1px;" class="class_0">11001</div>
+
+<div style="position:absolute;left:90.1px;top:610.9px;" class="class_0">o</div>
+
+<div style="position:absolute;left:126.1px;top:610.9px;" class="class_0">1</div>
+
+<div style="position:absolute;left:162.1px;top:610.9px;" class="class_0">00110</div>
+
+<div style="position:absolute;left:90.1px;top:623.7px;" class="class_0">p</div>
+
+<div style="position:absolute;left:126.1px;top:623.7px;" class="class_0">1</div>
+
+<div style="position:absolute;left:162.1px;top:623.7px;" class="class_0">10011</div>
+
+<div style="position:absolute;left:90.1px;top:636.5px;" class="class_0">r</div>
+
+<div style="position:absolute;left:126.1px;top:636.5px;" class="class_0">1</div>
+
+<div style="position:absolute;left:162.1px;top:636.5px;" class="class_0">11000</div>
+
+<div style="position:absolute;left:90.1px;top:649.3px;" class="class_0">u</div>
+
+<div style="position:absolute;left:126.1px;top:649.3px;" class="class_0">1</div>
+
+<div style="position:absolute;left:162.1px;top:649.3px;" class="class_0">00111</div>
+
+<div style="position:absolute;left:90.1px;top:662.1px;" class="class_0">x</div>
+
+<div style="position:absolute;left:126.1px;top:662.1px;" class="class_0">1</div>
+
+<div style="position:absolute;left:162.1px;top:662.1px;" class="class_0">10010</div>
+
+<div style="position:absolute;left:90.1px;top:700.5px;" class="class_0">The tree corresponding to the above data is:</div>
+
+
+</div>
+<div id = "div_3" style='position:absolute;left:50%;margin-left:-306.000000px;top:2406.000000px;width:612.000000px;height:792.000000px;border-style:outset;overflow:hidden'>
+<img src='images/3-0.jpg' style = 'position:absolute;left:131.699997px;top:84.799988px' width='348.600006' height='232.000000'>
+<img src='images/3-0.jpg' style = 'position:absolute;left:131.699997px;top:84.799988px' width='348.600006' height='232.000000'>
+<div style=" position:absolute; left:90.1px; top:403.8px;" class="class_0">Verification:</div>
+
+<div style="position:absolute;left:90.1px;top:429.4px;" class="class_0">Take   a   input   file   where   each   line   contains   a   character   at   the   beginning, </div>
+
+<div style="position:absolute;left:90.1px;top:442.2px;" class="class_0">followed by a frequency count. Assume that only 26 lower case alphabets are  </div>
+
+<div style="position:absolute;left:90.1px;top:455px;" class="class_0">given   and   space   etc.   is  not  given.   The   output  will   be   in   same   form,   with   the  </div>
+
+<div style="position:absolute;left:90.1px;top:467.8px;" class="class_0">character   code   following   the   frequency.   Use   a   single   space   to   separate   the </div>
+
+<div style="position:absolute;left:90.1px;top:480.6px;" class="class_0">fields in a line. Do not use tab or double space. Note that your output may be </div>
+
+<div style="position:absolute;left:90.1px;top:493.4px;" class="class_0">different from one given below depending on how you break the ties.</div>
+
+<div style="position:absolute;left:90.1px;top:519px;" class="class_0">Example Input:</div>
+
+<div style="position:absolute;left:90.1px;top:544.6px;" class="class_0">b</div>
+
+<div style="position:absolute;left:126.1px;top:544.6px;" class="class_0">7</div>
+
+<div style="position:absolute;left:90.1px;top:557.4px;" class="class_0">a</div>
+
+<div style="position:absolute;left:126.1px;top:557.4px;" class="class_0">4</div>
+
+<div style="position:absolute;left:90.1px;top:570.2px;" class="class_0">e</div>
+
+<div style="position:absolute;left:126.1px;top:570.2px;" class="class_0">4</div>
+
+<div style="position:absolute;left:90.1px;top:583px;" class="class_0">f</div>
+
+<div style="position:absolute;left:126.1px;top:583px;" class="class_0">3</div>
+
+<div style="position:absolute;left:90.1px;top:595.8px;" class="class_0">h</div>
+
+<div style="position:absolute;left:126.1px;top:595.8px;" class="class_0">2</div>
+
+<div style="position:absolute;left:90.1px;top:608.6px;" class="class_0">i</div>
+
+<div style="position:absolute;left:126.1px;top:608.6px;" class="class_0">2</div>
+
+<div style="position:absolute;left:90.1px;top:621.4px;" class="class_0">m</div>
+
+<div style="position:absolute;left:126.1px;top:621.4px;" class="class_0">2</div>
+
+<div style="position:absolute;left:90.1px;top:634.2px;" class="class_0">n</div>
+
+<div style="position:absolute;left:126.1px;top:634.2px;" class="class_0">2</div>
+
+<div style="position:absolute;left:90.1px;top:647px;" class="class_0">s</div>
+
+<div style="position:absolute;left:126.1px;top:647px;" class="class_0">2</div>
+
+<div style="position:absolute;left:90.1px;top:659.8px;" class="class_0">t</div>
+
+<div style="position:absolute;left:126.1px;top:659.8px;" class="class_0">2</div>
+
+<div style="position:absolute;left:90.1px;top:672.6px;" class="class_0">l</div>
+
+<div style="position:absolute;left:126.1px;top:672.6px;" class="class_0">1</div>
+
+<div style="position:absolute;left:90.1px;top:685.4px;" class="class_0">o</div>
+
+<div style="position:absolute;left:126.1px;top:685.4px;" class="class_0">1</div>
+
+<div style="position:absolute;left:90.1px;top:698.2px;" class="class_0">p</div>
+
+<div style="position:absolute;left:126.1px;top:698.2px;" class="class_0">1</div>
+
+<div style="position:absolute;left:90.1px;top:711px;" class="class_0">r</div>
+
+<div style="position:absolute;left:126.1px;top:711px;" class="class_0">1</div>
+
+
+</div>
+<div id = "div_4" style='position:absolute;left:50%;margin-left:-306.000000px;top:3208.000000px;width:612.000000px;height:792.000000px;border-style:outset;overflow:hidden'>
+<img src='images/4-4215806.jpg' style = 'position:absolute;left:0.000000px;top:-0.000000px' width='0.000000' height='-0.000000'>
+<div style=" position:absolute; left:90.1px; top:82.2px;" class="class_0">u</div>
+
+<div style="position:absolute;left:126.1px;top:82.2px;" class="class_0">1</div>
+
+<div style="position:absolute;left:90.1px;top:95px;" class="class_0">x</div>
+
+<div style="position:absolute;left:126.1px;top:95px;" class="class_0">1</div>
+
+<div style="position:absolute;left:90.1px;top:120.6px;" class="class_0">Example Output:</div>
+
+<div style="position:absolute;left:90.1px;top:133.4px;" class="class_0">b</div>
+
+<div style="position:absolute;left:126.1px;top:133.4px;" class="class_0">7</div>
+
+<div style="position:absolute;left:162.1px;top:133.4px;" class="class_0">111</div>
+
+<div style="position:absolute;left:90.1px;top:146.2px;" class="class_0">a</div>
+
+<div style="position:absolute;left:126.1px;top:146.2px;" class="class_0">4</div>
+
+<div style="position:absolute;left:162.1px;top:146.2px;" class="class_0">010</div>
+
+<div style="position:absolute;left:90.1px;top:159px;" class="class_0">e</div>
+
+<div style="position:absolute;left:126.1px;top:159px;" class="class_0">4</div>
+
+<div style="position:absolute;left:162.1px;top:159px;" class="class_0">000</div>
+
+<div style="position:absolute;left:90.1px;top:171.8px;" class="class_0">f</div>
+
+<div style="position:absolute;left:126.1px;top:171.8px;" class="class_0">3</div>
+
+<div style="position:absolute;left:162.1px;top:171.8px;" class="class_0">1101</div>
+
+<div style="position:absolute;left:90.1px;top:184.6px;" class="class_0">h</div>
+
+<div style="position:absolute;left:126.1px;top:184.6px;" class="class_0">2</div>
+
+<div style="position:absolute;left:162.1px;top:184.6px;" class="class_0">1010</div>
+
+<div style="position:absolute;left:90.1px;top:197.4px;" class="class_0">i</div>
+
+<div style="position:absolute;left:126.1px;top:197.4px;" class="class_0">2</div>
+
+<div style="position:absolute;left:162.1px;top:197.4px;" class="class_0">1000</div>
+
+<div style="position:absolute;left:90.1px;top:210.2px;" class="class_0">m</div>
+
+<div style="position:absolute;left:126.1px;top:210.2px;" class="class_0">2</div>
+
+<div style="position:absolute;left:162.1px;top:210.2px;" class="class_0">0111</div>
+
+<div style="position:absolute;left:90.1px;top:223px;" class="class_0">n</div>
+
+<div style="position:absolute;left:126.1px;top:223px;" class="class_0">2</div>
+
+<div style="position:absolute;left:162.1px;top:223px;" class="class_0">0010</div>
+
+<div style="position:absolute;left:90.1px;top:235.8px;" class="class_0">s</div>
+
+<div style="position:absolute;left:126.1px;top:235.8px;" class="class_0">2</div>
+
+<div style="position:absolute;left:162.1px;top:235.8px;" class="class_0">1011</div>
+
+<div style="position:absolute;left:90.1px;top:248.6px;" class="class_0">t</div>
+
+<div style="position:absolute;left:126.1px;top:248.6px;" class="class_0">2</div>
+
+<div style="position:absolute;left:162.1px;top:248.6px;" class="class_0">0110</div>
+
+<div style="position:absolute;left:90.1px;top:261.4px;" class="class_0">l</div>
+
+<div style="position:absolute;left:126.1px;top:261.4px;" class="class_0">1</div>
+
+<div style="position:absolute;left:162.1px;top:261.4px;" class="class_0">11001</div>
+
+<div style="position:absolute;left:90.1px;top:274.2px;" class="class_0">o</div>
+
+<div style="position:absolute;left:126.1px;top:274.2px;" class="class_0">1</div>
+
+<div style="position:absolute;left:162.1px;top:274.2px;" class="class_0">00110</div>
+
+<div style="position:absolute;left:90.1px;top:287px;" class="class_0">p</div>
+
+<div style="position:absolute;left:126.1px;top:287px;" class="class_0">1</div>
+
+<div style="position:absolute;left:162.1px;top:287px;" class="class_0">10011</div>
+
+<div style="position:absolute;left:90.1px;top:299.8px;" class="class_0">r</div>
+
+<div style="position:absolute;left:126.1px;top:299.8px;" class="class_0">1</div>
+
+<div style="position:absolute;left:162.1px;top:299.8px;" class="class_0">11000</div>
+
+<div style="position:absolute;left:90.1px;top:312.6px;" class="class_0">u</div>
+
+<div style="position:absolute;left:126.1px;top:312.6px;" class="class_0">1</div>
+
+<div style="position:absolute;left:162.1px;top:312.6px;" class="class_0">00111</div>
+
+<div style="position:absolute;left:90.1px;top:325.4px;" class="class_0">x</div>
+
+<div style="position:absolute;left:126.1px;top:325.4px;" class="class_0">1</div>
+
+<div style="position:absolute;left:162.1px;top:325.4px;" class="class_0">10010</div>
+
+
+</div>

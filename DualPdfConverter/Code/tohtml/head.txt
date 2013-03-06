@@ -1,0 +1,18 @@
+#div_0 .class_0{font-family:imbusRomNo9L,Times New Roman;font-style:normal;font-weight:normal;color:rgb(0,0,0);font-size:16px;}
+
+#div_0 .class_1{font-family:imbusRomNo9L,Times New Roman;font-style:normal;font-weight:normal;color:rgb(0,0,0);font-size:12px;}
+
+#div_0 .class_2{font-family:DejaVuSans,Times New Roman;font-style:normal;font-weight:normal;color:rgb(0,0,0);font-size:11px;}
+
+#div_0 .class_3{font-family:DejaVuSans,Times New Roman;font-style:normal;font-weight:normal;color:rgb(0,0,0);font-size:11px;}
+
+#div_1 .class_0{font-family:DejaVuSans,Times New Roman;font-style:normal;font-weight:normal;color:rgb(0,0,0);font-size:11px;}
+
+#div_1 .class_1{font-family:imbusRomNo9L,Times New Roman;font-style:normal;font-weight:normal;color:rgb(0,0,0);font-size:12px;}
+
+#div_2 .class_0{font-family:DejaVuSans,Times New Roman;font-style:normal;font-weight:normal;color:rgb(0,0,0);font-size:11px;}
+
+#div_3 .class_0{font-family:DejaVuSans,Times New Roman;font-style:normal;font-weight:normal;color:rgb(0,0,0);font-size:11px;}
+
+#div_4 .class_0{font-family:DejaVuSans,Times New Roman;font-style:normal;font-weight:normal;color:rgb(0,0,0);font-size:11px;}
+

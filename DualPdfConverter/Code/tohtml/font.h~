@@ -1,0 +1,57 @@
+#ifndef FONT_H
+#define FONT_H
+
+#include<string>
+using namespace std;
+
+class font{
+	double spaceWidth;
+	string family;
+	double size;
+	string color;
+	string weight;
+	string style;
+
+public:
+
+	font(double spW , string fam , double sz , string wt , string sty , string clr){
+		spaceWidth = spW;
+		family = fam;
+		size = sz;
+		weight = wt;
+		style = sty;
+		color = clr;
+	}
+
+	double getSpaceWidth(){
+		return spaceWidth;
+	}
+
+	string getFamily(){
+		return family;
+	}
+
+	double getSize(){
+		double size;
+	}
+
+	string getWeight(){
+		return weight;
+	}
+
+	string getStyle(){
+		return style;
+	}
+
+	string getColor(){
+		return color;
+	}
+
+	bool operator<(const font & f1){
+		if(f1.getColor() == color && f1.getStyle() == style && f1.getWeight() == weight && f1.getSize() == size && 
+			f1.getFamily() == family && f1.getSpaceWidth() == spaceWidth ) return true;
+		else return false;
+	}
+};
+
+#endif

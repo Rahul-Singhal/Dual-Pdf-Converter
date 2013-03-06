@@ -1,0 +1,7 @@
+i=0
+j=5
+for file in *.txt
+do
+  	mv "$file" temp/"$i_$j.txt"
+	i=$(( $i + 1 ))
+done
