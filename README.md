@@ -5,15 +5,15 @@ A Program written in JAVA and C++ to convert pdf files to their equivalent LaTeX
 
 
 CONTENTS OF DIFFERENT FOLDERS:
-  src - contains java files and java class files after compilation of java code and also shell scripts to run the whole program.
-  lib - contains .jar file of library used by java code.
-  pdfData - conatins output of java files i.e. files that contain extracted text and images ( textLocations.txt, imageLocation.txt, images)
-  tolatex - conatins c++ code files used for latex code generation
-  tohtml - conatins c++ code files used for html code generation
-  samplePdf - folder in which contins pdf files that has to be converted to .tex or .html format
-  htmlOutput -  folder in which output which contains html code for input pdf i.e. final.html will be kept and also images which were present in the pdf
-  LatexOutput -  folder in which output which contains Latex code for input pdf i.e. final.tex will be kept.
-  Demo - contains pdf files which we will use for our demo
+  1.src - contains java files and java class files after compilation of java code and also shell scripts to run the whole program.
+  2.lib - contains .jar file of library used by java code.
+  3.pdfData - conatins output of java files i.e. files that contain extracted text and images ( textLocations.txt, imageLocation.txt, images)
+  4.tolatex - conatins c++ code files used for latex code generation
+  5.tohtml - conatins c++ code files used for html code generation
+  6.samplePdf - folder in which contins pdf files that has to be converted to .tex or .html format
+  7.htmlOutput -  folder in which output which contains html code for input pdf i.e. final.html will be kept and also images which were present in the pdf
+  8.LatexOutput -  folder in which output which contains Latex code for input pdf i.e. final.tex will be kept.
+  9.Demo - contains pdf files which we will use for our demo
   
 HOW TO RUN:
   1. Put the .pdf file that you want to canvert to .html or .tex in samplePdf folder.
